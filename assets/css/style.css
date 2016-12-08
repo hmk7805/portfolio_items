@@ -1,0 +1,19 @@
+*{
+	box-sizing: border-box;
+}
+
+.center {
+	text-align: center;
+}
+
+.score {
+	
+	display:inline;
+	
+}
+
+.pic {
+
+	display:inline;
+
+}
