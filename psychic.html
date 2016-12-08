@@ -8,10 +8,15 @@
 <!-- bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+
+
 <!-- bootstrap theme -->
 	<link rel="stylesheet" type="text/css" href="/Users/HannahKing/Class/Projects/week-3-game/assets/css/bootstrap-theme.css">
 
 	<!-- <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> -->
+	
+<!-- Latest compiled bootstrap JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- local css -->
 	<link rel="stylesheet" type="text/css" href="/Users/HannahKing/Class/Projects/week-3-game/assets/css/style.css">
@@ -50,8 +55,8 @@
 <!-- jumbotron -->
 <div class="jumbotron">
   <h1 class= "text-center">Guess What Letter I Am Thinking Of...</h1>
-  <p class="text-center">You have 9 chances to guess the letter that I am thinking. If you fail to guess the letter you will lose. If you succeed, you will win. If you duplicate an incorrect letter, you will lose an attempt.</p>
-  <p class="center"><a class="btn btn-primary btn-lg ">Learn more</a></p>
+  <p class="text-center directions">You have 9 chances to guess the letter that I am thinking. If you fail to guess the letter you will lose. If you succeed, you will win. If you duplicate an incorrect letter, you will lose an attempt.</p>
+  
 </div>
 <!-- panel w/ game -->
 <div class = row>
@@ -65,7 +70,7 @@
  
  <!-- 2nd col -->
   <div class="col-md-6 well well-lg text-center pic">
-		<img src="assets/images/archangel-ariel-mosaic.jpg" alt="guess" style="width:80%; height:200px">
+		<img src="assets/images/archangel-ariel-mosaic.jpg" alt="guess" style="height:200px">
   </div>
 </div>
 
@@ -76,10 +81,6 @@
 
 <script type="text/javascript">
 		$(document).ready(reset);
-
-		
-
-
 	//set original game settings
 	var wins = 0;
 	var losses = 0;
@@ -149,20 +150,6 @@ console.log("g: " + guesses);
 
 
 
-
-
-
-
-
-
-
-
-		
-
-
-
-//does this clear the array of all choices
-		//guessed.splice(0,guessed.length);	
 	
 
 </script>
