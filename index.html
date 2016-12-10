@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-	<title>Hangman</title>
-	
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Psychic Game</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -45,22 +44,20 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      <ul class="nav nav-tabs">
-  		<li class="active"><a href="#" data-toggle="tab">Home</a></li>
-  		<li><a href="index.html">Hangman</a></li>
-      <li class="active"><a href="psychic.html" data-toggle="tab">Psychic</a></li>
-  		
-	 </ul>
+      <li class="active"><a href="#" data-toggle="tab">Home</a></li>
+      <li><a href="psychic.html" data-toggle="tab">Psychic</a></li>
+      <li class="active"><a href="index.html">Hangman</a></li>
+   </ul>
+  
     </div>
   </div>
 </nav>
-
 <!-- jumbotron -->
 <div class="jumbotron">
-  <h1 class= "text-center">Hangman </h1>
+  <h1 class= "text-center">Guess What Letter I Am Thinking Of...</h1>
   <p class="text-center directions">You have 9 chances to guess the letter that I am thinking. If you fail to guess the letter you will lose. If you succeed, you will win. If you duplicate an incorrect letter, you will lose an attempt.</p>
   
 </div>
-
 <!-- panel w/ game -->
 <div class = row>
   <!-- 1st col -->
@@ -68,19 +65,96 @@
     <h3>Wins: <div id = "wins" style="display:inline;">0</div></h3>
   <h3>Losses: <div id = "losses" style="display:inline;">0</div></h3>
   <h3>Guesses Left: <div id = "guessesLeft" style="display:inline;">9</div></h3>
-  <h3>Your Letters So Far: <div id = "guesses" style="display:inline;"></div></h3>
+  <h3>Your Guesses So Far: <div id = "guesses" style="display:inline;"></div></h3>
   </div>
  
  <!-- 2nd col -->
   <div class="col-md-6 well well-lg text-center pic">
-    <h3><div id="chosenWord"></div></h3>
-    <img src="assets/images/hangman.jpg" alt="guess" style="height:200px">
+    <img src="assets/images/archangel-ariel-mosaic.jpg" alt="guess" style="height:200px">
   </div>
 </div>
 
 
-<!-- array of blanks
-indexof -->
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(reset);
+  //set original game settings
+  var wins = 0;
+  var losses = 0;
+  var guesses = 9;
+  //does this make an array of the user choices?
+  var guessed = [];
+  var user;
+  //computer options
+  var computerOpt = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  var computerGuess;
+  //function that generates the comp guess  
+  function compRand (){
+  console.log(computerOpt);
+  computerGuess = computerOpt[Math.floor(Math.random() * computerOpt.length)];
+  }
+
+  //function to reset game without refresh
+  function reset() {
+  guesses = 9;
+  document.getElementById("guessesLeft").innerHTML = guesses;
+  compRand();
+  guessed = [];
+  document.getElementById("guesses").innerHTML = guessed;
+  }
+
+//user key choice
+document.onkeypress=function(event){
+  user = String.fromCharCode(event.keyCode).toLowerCase();
+  
+  guessed.push(user); 
+    //or 
+    //guessed[guessed.length] = user;
+
+  //does this print the array to the document in a string seperated by ~s?    
+  document.getElementById("guesses").innerHTML = guessed.join(" ~ ");
+  guesses--;
+
+  
+
+  //compare if same
+  if (user == computerGuess) {
+    wins++;
+    document.getElementById("wins").innerHTML = wins;
+    reset();
+  }
+    
+  //compare if different
+  else {
+    document.getElementById("guessesLeft").innerHTML = guesses;   
+  } 
+  
+  //when guesses run out on a loss
+  if (guesses == 0){
+  losses++;
+  document.getElementById("losses").innerHTML =losses;
+  reset();
+  } 
+  
+
+    //testing in console
+console.log("user: " + user);
+console.log("comp: " + computerGuess);
+console.log("w: " + wins);
+console.log("l: " + losses);
+console.log("g: " + guesses);
+}
+
+
+
+  
+
+</script>
 
 </body>
-</html>
+
+
+</HTML>
