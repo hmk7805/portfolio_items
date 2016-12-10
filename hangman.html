@@ -4,7 +4,8 @@
 
 	<title>Hangman</title>
 	
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,
+ initial-scale=1">
 
 <!-- bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -16,15 +17,16 @@
 
   <!-- <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> -->
   
-<!-- Latest compiled bootstrap JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <!-- local css -->
   <link rel="stylesheet" type="text/css" href="/Users/HannahKing/Class/Projects/week-3-game/assets/css/style.css">
 
 
 <!-- jQuery -->
   <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+
+<!-- Latest compiled bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
 </head>
 
@@ -45,9 +47,9 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      <ul class="nav nav-tabs">
-  		<li class="active"><a href="#" data-toggle="tab">Home</a></li>
-  		 <li class="active"><a href="index.html" data-toggle="tab">Psychic</a></li>
-  		 <li><a href="hangman.html">Hangman</a></li>
+  		
+  		 <li class="active"><a href="index.html">Psychic</a></li>
+  		 <li class="active"><a href="hangman.html" data-toggle="tab">Hangman</a></li>
      
   		
 	 </ul>
@@ -66,10 +68,18 @@
 <div class = row>
   <!-- 1st col -->
   <div class="col-md-6 well well-lg text-center score">
-    <h3>Wins: <div id = "wins" style="display:inline;">0</div></h3>
-  <h3>Losses: <div id = "losses" style="display:inline;">0</div></h3>
-  <h3>Guesses Left: <div id = "guessesLeft" style="display:inline;">9</div></h3>
-  <h3>Your Letters So Far: <div id = "guesses" style="display:inline;"></div></h3>
+    <div>
+      <h1 id="word"> </h1>
+    </div>
+
+    <div>
+      <h2 id="wins">Wins: 0</h2>
+      <h2 id="losses">Losses: 0</h2>
+      <h2 id="guessesLeft">Guesses Left: 6</h2>
+      <h2 id="guesses">Guesses:</h2>
+    </div>
+
+
   </div>
  
  <!-- 2nd col -->
@@ -79,7 +89,74 @@
   </div>
 </div>
 
+<script type="text/javascript">
+$(document).ready(reset);
 
+  var wins = 0;
+  var losses = 0;
+  var guesses = 9;
+  //does this make an array of the user choices?
+  var guessed = [];
+  var user;
+  var hidden = [];
+  //computer options
+  var computerOpt = ["Alaska",  "Alabama",  "Arkansas",  "Arizona",  "California",  "Colorado",  "Connecticut",  "District of Columbia",  "Delaware",  "Florida",  "Georgia",  "Hawaii",  "Iowa",  "Idaho",  "Illinois",  "Indiana",  "Kansas",  "Kentucky",  "Louisiana",  "Massachusetts",  "Maryland",  "Maine",  "Michigan",  "Minnesota",  "Missouri",  "Mississippi",  "Montana",  "North Carolina",  "North Dakota",  "Nebraska",  "New Hampshire",  "New Jersey",  "New Mexico",  "Nevada",  "New York",  "Ohio",  "Oklahoma",  "Oregon",  "Pennsylvania",  "Rhode Island",  "South Carolina",  "South Dakota",  "Tennessee",  "Texas",  "Utah",  "Virginia",  "Vermont",  "Washington",  "Wisconsin",  "West Virginia",  "Wyoming"]
+
+  var computerGuess;
+
+  //function that generates the comp guess  
+  function compRand (){
+    
+    computerGuess = computerOpt[Math.floor(Math.random() * computerOpt.length)].toLowerCase();
+    //loop that displays the placeholders and assigns letter classes to the placeholder spans
+    for (var i = 0; i < computerGuess.length; i++) {
+      hidden[i] = document.createElement("SPAN");
+      hidden[i].setAttribute("class", computerGuess[i]);
+      hidden[i].innerHTML = '__  ';
+      document.getElementById("word").append(hidden[i]);
+      if (computerGuess[i] == " "){
+        hidden[i].innerHTML = '&nbsp      ';
+      }
+    }
+  }
+
+  function reset() {
+    guesses = 6;
+    document.getElementById("guessesLeft").innerHTML = "Guesses Left: " + guesses;
+    
+    guessed = [];
+    document.getElementById("guesses").innerHTML = "Guesses: " + guessed;
+
+    compRand();
+  };
+ 
+ 
+ //user key choice
+document.onkeypress=function(event){
+  user = String.fromCharCode(event.keyCode).toLowerCase();
+  
+  guessed.push(user); 
+    //or 
+    //guessed[guessed.length] = user;
+
+//this print the array to the document in a string seperated by ~s?    
+  document.getElementById("guesses").innerHTML = guessed.join(" ~ ");
+  guesses--
+
+  //testing in console
+    console.log("user: " + user);
+    console.log("comp: " + computerGuess);
+    console.log("w: " + wins);
+    console.log("l: " + losses);
+    console.log("g: " + guesses);
+}
+
+
+
+
+
+
+</script>
 <!-- array of blanks
 indexof -->
 
