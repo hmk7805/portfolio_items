@@ -4,20 +4,27 @@
 
 	<title>Hangman</title>
 	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <!-- bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
 
 <!-- bootstrap theme -->
-	<link rel="stylesheet" type="text/css" href="/Users/HannahKing/Class/Projects/week-3-game/assets/css/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="/Users/HannahKing/Class/Projects/week-3-game/assets/css/bootstrap-theme.css">
 
-	<!-- <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> -->
+  <!-- <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> -->
+  
+<!-- Latest compiled bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- local css -->
-	<link rel="stylesheet" type="text/css" href="/Users/HannahKing/Class/Projects/week-3-game/assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/Users/HannahKing/Class/Projects/week-3-game/assets/css/style.css">
 
 
 <!-- jQuery -->
-	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
 
 </head>
 
@@ -39,16 +46,41 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      <ul class="nav nav-tabs">
   		<li class="active"><a href="#" data-toggle="tab">Home</a></li>
-  		<li class="active"><a href="psychic.html" data-toggle="tab">Psychic</a></li>
   		<li><a href="index.html">Hangman</a></li>
+      <li class="active"><a href="psychic.html" data-toggle="tab">Psychic</a></li>
+  		
 	 </ul>
-    
     </div>
   </div>
 </nav>
 
-//array of blanks
-//indexof
-//
+<!-- jumbotron -->
+<div class="jumbotron">
+  <h1 class= "text-center">Hangman </h1>
+  <p class="text-center directions">You have 9 chances to guess the letter that I am thinking. If you fail to guess the letter you will lose. If you succeed, you will win. If you duplicate an incorrect letter, you will lose an attempt.</p>
+  
+</div>
+
+<!-- panel w/ game -->
+<div class = row>
+  <!-- 1st col -->
+  <div class="col-md-6 well well-lg text-center score">
+    <h3>Wins: <div id = "wins" style="display:inline;">0</div></h3>
+  <h3>Losses: <div id = "losses" style="display:inline;">0</div></h3>
+  <h3>Guesses Left: <div id = "guessesLeft" style="display:inline;">9</div></h3>
+  <h3>Your Letters So Far: <div id = "guesses" style="display:inline;"></div></h3>
+  </div>
+ 
+ <!-- 2nd col -->
+  <div class="col-md-6 well well-lg text-center pic">
+    <h3><div id="chosenWord"></div></h3>
+    <img src="assets/images/hangman.jpg" alt="guess" style="height:200px">
+  </div>
+</div>
+
+
+<!-- array of blanks
+indexof -->
+
 </body>
 </html>
