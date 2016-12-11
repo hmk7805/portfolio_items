@@ -122,18 +122,22 @@ document.onkeypress=function(event){
 
   //compare if same
   if (user == computerGuess) {
+    console.log("user == comp")
     wins++;
     document.getElementById("wins").innerHTML = wins;
     reset();
+
   }
     
   //compare if different
   else {
+    console.log("user != comp")
     document.getElementById("guessesLeft").innerHTML = guesses;   
   } 
   
   //when guesses run out on a loss
   if (guesses == 0){
+  console.log("guesses == 0")
   losses++;
   document.getElementById("losses").innerHTML =losses;
   reset();
