@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Psychic Game</title>
+  <title>Crystal Game</title>
   
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-
-
 <!-- bootstrap theme -->
-  <link rel="stylesheet" type="text/css" href="/Users/HannahKing/Class/Projects/week-3-game/assets/css/bootstrap-theme.css">
-
-  <!-- <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> -->
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.css">
   
 <!-- local css -->
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/crystalGame.css">
 
 
 <!-- jQuery -->
@@ -24,7 +20,9 @@
 
 <!-- Latest compiled bootstrap JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="assets/javascript/game.js"></script>
+
+<!-- Local .js file -->
+  <script src="assets/javascript/crystalGame.js"></script>
 
 </head>
 
@@ -45,10 +43,10 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      <ul class="nav nav-tabs">
-      
-      <li class="active"><a href="index.html" data-toggle="tab">Psychic</a></li>
+      <li class="active"><a href="index.html">Psychic</a></li>
       <li class="active"><a href="hangman.html">Hangman</a></li>
-      <li class="active"><a href="crystalGame.html">Crystal Game</a></li>
+      <li class="active"><a href="crystalGame.html" data-toggle="tab">Crystal Game</a></li>
+    
    </ul>
   
     </div>
@@ -56,25 +54,35 @@
 </nav>
 <!-- jumbotron -->
 <div class="jumbotron">
-  <h1 class= "text-center">Guess What Letter I Am Thinking Of...</h1>
-  <p class="text-center directions">You have 9 chances to guess the letter that I am thinking. If you fail to guess the letter you will lose. If you succeed, you will win. If you duplicate an incorrect letter, you will lose an attempt.</p>
+  <h1 class= "text-center">Crystal Game</h1>
+  <p class="text-center directions">Each crystal is worth a random value between 1 and 12. To win the game click on the crystals to add their values and try to match the value to the left.</p>
   
 </div>
 <!-- panel w/ game -->
   <!-- 1st col -->
-  <div class="col-md-12 well well-lg text-center pic">
-    <img src="assets/images/archangel-ariel-mosaic.jpg" alt="guess" style="height:200px">
-  </div>
-<!-- 2nd col -->
-  <div class="col-md-12 well well-lg text-center score">
-    <h3>Wins: <span id = "wins">0</span></h3>
-    <h3>Losses: <span id = "losses">0</span></h3>
-    <h3>Guesses Left: <span id = "guessesLeft">9</span></h3>
-    <h3>Your Guesses So Far: <span id = "guesses"></span></h3>
+  <div class="col-md-12 well well-lg text-center">
+    <div class = row>
+      <div class = "block">
+      <span class = "boxes" id="number"></span>
+      <span class = "boxes" id="sum"></span>
+      </div>
+    </div>
+    <div class = row>
+      <div class = "score">
+        <span class = "boxes" id = "scoreW"></span>
+        <span class = "boxes" id = "scoreL"></span>
+      </div>
+    </div>
   </div>
  
- 
-  
+ <!-- 2nd col -->
+  <div class="col-md-12 well well-lg text-center">
+    <img src="assets/images/diamond.jpg" alt="diamond" id="diamond" class = "crystal">
+    <img src="assets/images/ruby.jpg" alt="ruby" id="ruby" class = "crystal">
+    <img src="assets/images/cobalt.jpg" alt="cobalt" id="cobalt" class = "crystal">
+    <img src="assets/images/emrald.png" alt="emerald" id="emerald" class = "crystal">
+  </div>
+
 
 </body>
 

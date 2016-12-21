@@ -18,7 +18,7 @@
   <!-- <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> -->
   
 <!-- local css -->
-  <link rel="stylesheet" type="text/css" href="/Users/HannahKing/Class/Projects/week-3-game/assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 
 <!-- jQuery -->
@@ -27,6 +27,7 @@
 <!-- Latest compiled bootstrap JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  <script src="assets/javascript/hangman.js"></script>
 
 </head>
 
@@ -50,7 +51,7 @@
   		
   		 <li class="active"><a href="index.html">Psychic</a></li>
   		 <li class="active"><a href="hangman.html" data-toggle="tab">Hangman</a></li>
-     
+       <li class="active"><a href="crystalGame.html">Crystal Game</a></li>
   		
 	 </ul>
     </div>
@@ -65,12 +66,16 @@
 </div>
 
 <!-- panel w/ game -->
-<div class = row>
   <!-- 1st col -->
-  <div class="col-md-6 well well-lg text-center score">
+  <div class="col-md-12 well well-lg text-center pic">
     <div>
       <h1 id="word"> </h1>
     </div>
+    <img src="assets/images/hangman.jpg" alt="guess" style="height:200px">
+  </div>
+
+ <!-- 2nd col -->
+  <div class="col-md-12 well well-lg text-center score">
 
     <div>
       <h2 id="wins">Wins: 0</h2>
@@ -78,149 +83,11 @@
       <h2 id="guessesLeft">Guesses Left: 6</h2>
       <h2 id="guesses">Guesses:</h2>
     </div>
-
-
   </div>
  
- <!-- 2nd col -->
-  <div class="col-md-6 well well-lg text-center pic">
-    <h3><div id="chosenWord"></div></h3>
-    <img src="assets/images/hangman.jpg" alt="guess" style="height:200px">
-  </div>
-</div>
-
-<script type="text/javascript">
-$(document).ready(reset);
-
-  var wins = 0;
-  var losses = 0;
-  var guesses = 6;
-  //does this make an array of the user choices?
-  var guessed = [];
-  var user;
-  //user options
-  var userOpt = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-  
-  //computer options
-  var computerOpt = ["Alaska",  "Alabama",  "Arkansas",  "Arizona",  "California",  "Colorado",  "Connecticut",  "District of Columbia",  "Delaware",  "Florida",  "Georgia",  "Hawaii",  "Iowa",  "Idaho",  "Illinois",  "Indiana",  "Kansas",  "Kentucky",  "Louisiana",  "Massachusetts",  "Maryland",  "Maine",  "Michigan",  "Minnesota",  "Missouri",  "Mississippi",  "Montana",  "North Carolina",  "North Dakota",  "Nebraska",  "New Hampshire",  "New Jersey",  "New Mexico",  "Nevada",  "New York",  "Ohio",  "Oklahoma",  "Oregon",  "Pennsylvania",  "Rhode Island",  "South Carolina",  "South Dakota",  "Tennessee",  "Texas",  "Utah",  "Virginia",  "Vermont",  "Washington",  "Wisconsin",  "West Virginia",  "Wyoming"]
-
-  var computerGuess;
-  var hidden = [];
-  var progress = [];
-
-  //function that clears the word area
-  function wordClear() {
-        document.getElementById("word").innerHTML = " "
-      }
-
-  //function that generates the comp guess  
-  function compRand (){
-    
-    computerGuess = computerOpt[Math.floor(Math.random() * computerOpt.length)].toLowerCase();
-    //loop that displays the placeholders and assigns letter classes to the placeholder spans
-    for (var i = 0; i < computerGuess.length; i++) {
-      hidden[i] = document.createElement("SPAN");
-      hidden[i].setAttribute("class", computerGuess[i])
-      // hidden[i].setAttribute("id", "letterPosition" + i)
-      hidden[i].innerHTML = '__  ';
-      document.getElementById("word").append(hidden[i]);
-      if (computerGuess[i] == " "){
-        //only way to achieve white space w/o css
-        hidden[i].innerHTML = '&nbsp      ';
-      }
-    }
-  }
-
-  function reset() {
-    guesses = 6;
-    document.getElementById("guessesLeft").innerHTML = "Guesses Left: " + guesses;
-    
-    guessed = [];
-    document.getElementById("guesses").innerHTML = "Guesses: " + guessed;
-
-    wordClear();
-    compRand();
-
-    progress = []
-    hidden = []
-  };
- 
- 
-  //user key choice
-  document.onkeypress=function(event){
-    
-    
-  // for(var i=0;i<userOpt.length;i++){
-  //   var test = userOpt[i]
-  //   if (user == test){
-      //set variable to key choice
-      user = String.fromCharCode(event.keyCode).toLowerCase();
-      
-      //push variable user into guessed array, other option --> guessed[guessed.length] = user;
-      guessed.push(user); 
-        
-      //this prints the array to the document in a string seperated by ~s?    
-      document.getElementById("guesses").innerHTML = guessed.join(" ~ ");
-
-      for ( var i = 0 ; i < computerGuess.length ; i++ ) {
-        
-        //if user is any letter of the word, find the elements with that letter class and change the html to that letter.
-        if (user == computerGuess[i]) {
-
-          console.log(true)
-          
-          document.getElementsByClassName("." + user).innerhtml = user + " "
-
-          console.log(true)
-          
-          progress.push(user);
-
-          console.log(progress + " " + computerGuess)
-
-          // if all of the letters have been chosen, alert a win, increment wins
-          if (progress.length == computerGuess.length) {
-            
-            alert("You Win, the state was " + computerGuess)
-            wins++
-            reset()
-          }
-        }else{
-
-            guesses--
-
-          }
-          if (guesses = 0){
-            alert("You Lose, the state was " + computerGuess)
-            losses++
-            reset()
-          }
-
-      }
-      
-
-    //Ignore invalid key press
-
-    //testing in console
-    console.log("user: " + user);
-    console.log("comp: " + computerGuess);
-    console.log("w: " + wins);
-    console.log("l: " + losses);
-    console.log("g: " + guesses)
-    console.log("progress: " + progress);
-  }
-
 
   
- 
 
-
-
-
-
-
-</script>
-<!-- array of blanks
-indexof -->
 
 </body>
 </html>
