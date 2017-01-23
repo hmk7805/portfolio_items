@@ -1,4 +1,3 @@
-
 $(document).ready(reset);
 
   var wins = 0;
@@ -77,6 +76,8 @@ $(document).ready(reset);
 
           letterGuess++
           progress.push(user);
+          // document.getElementsByClassName('.' + user).innerHTML = user;
+          $('.' + user).html(user);
         }
         nodelist = document.getElementsByClassName(user);
         for (var j = 0 ; j < nodelist.length ; j++) {
@@ -87,10 +88,14 @@ $(document).ready(reset);
 
       // if all of the letters have been chosen, alert a win, increment wins
       if (progress.length === computerGuess.length) {
-        alert("You Win, the state was " + computerGuess)
+        setTimeout(function(){
+          alert("You Win, the state was " + computerGuess)
+        }, 3)
         wins++
-        reset()
-          }
+        setTimeout(function(){
+          reset()
+        }, 5);
+      }
       
       if (letterGuess === 0) {
         guesses--
@@ -104,7 +109,6 @@ $(document).ready(reset);
         }
       
 
-    //Ignore invalid key press
 
     //testing in console
     console.log("user: " + user);
