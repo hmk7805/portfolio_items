@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bones Trivia Game</title>
+	
+<!-- Allows webdesigners to control the viewport deminsions -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- reset css -->
+  <link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
+
+<!-- bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- bootstrap theme -->
+  <link rel="stylesheet" type="text/css" href="/Users/HannahKing/Class/Projects/portfolio_items/assets/css/bootstrap-theme.css"> 
+  
+<!-- local css -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+<!-- jQuery -->
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+
+<!-- Latest compiled bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- local .js -->
+	<script src="assets/javascript/app.js"></script>
+   
+</head>
+<body>
+<!-- nav bar -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-cloud"></span></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="../index.html">Psychic</a></li>
+        <li class="active"><a href="../hangman/index.html">Hangman</a></li>
+        <li class="active"><a href="../crystalGame/index.html">Crystal Game</a></li>
+        <li class="active"><a href="TriviaGame/index.html" data-toggle="tab">Trivia</a></li>
+        <li class="active"><a href="../giphyAPI/index.html">Grab a Giphy</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class = "container">
+<!-- on every view -->
+  <div class = "header jumbotron">
+    <h1>Bone Trivia!</h1>
+    <p>Press begin and answer the questions  before the time runs out</p>
+
+  </div>
+<!-- Begin view -->
+  <div class = "jumbotron centered" id = "begin">
+    <button class = "btn btn-default btn-lg button" id = "beginBtn">Begin</button>
+  </div>
+<!-- Question view  -->
+  <div class = "jumbotron" id = "questionContent">
+    <h1>Name These Bones</h1>
+    <div>
+      <p class = "timer">You Have <span id ="timer">30</span> secs Remaining</p>
+    </div>
+    <div class = 'questionArea'>
+      <div class = 'well question left-question'>
+        <form>
+        <img src="assets/images/humerus.gif" style="display:block; height:200px">
+          <input type="radio" name="humerus" value="tibia"> Tibia
+          <input type="radio" name="humerus" value="radius"> Radius
+          <input type="radio" name="humerus" value="humerus"> Humerus 
+          <input type="radio" name="humerus" value="none"> None  
+        </form> 
+      </div>
+      <div class = 'well question right-question'>
+        <form>
+        <img src="assets/images/clavicle.gif" style="display:block; height:200px">
+          <input type="radio" name="clavicle" value="scupula"> Scapula
+          <input type="radio" name="clavicle" value="sternum"> Sternum
+          <input type="radio" name="clavicle" value="clavicle"> Clavicle  
+          <input type="radio" name="clavicle" value="none"> None  
+        </form> 
+      </div>
+      <div class = 'well question left-question'>
+        <form>
+        <img src="assets/images/femur.gif" style="display:block; height:200px">
+          <input type="radio" name="femur" value="ulna"> Ulna
+          <input type="radio" name="femur" value="femur"> Femur
+          <input type="radio" name="femur" value="fibula"> Fibula  
+          <input type="radio" name="femur" value="none"> None  
+        </form> 
+      </div>
+      <div class = 'well question right-question'>
+        <form>
+        <img src="assets/images/tibia.gif" style="display:block; height:200px">
+          <input type="radio" name="tibia" value="tibia"> Tibia
+          <input type="radio" name="tibia" value="radius"> Radius
+          <input type="radio" name="tibia" value="femur"> Femur 
+          <input type="radio" name="tibia" value="none"> None   
+        </form> 
+        </div>
+    </div>
+    <a href="#" class="btn btn-default btn-lg btn-block button" id="doneBtn">Done</a>
+  </div>
+<!-- Score view -->
+  <div class = "jumbotron text-centered" id = "scoreCard">
+    <h2><span id = "timeUp"></span><span id = "allDone"></span></h2>
+    <div class = 'score'>
+      <h2 id = "correct"></h2>
+      <h2 id = "incorrect"></h2>
+      <h2 id = "unanswered"></h2>
+    </div>
+
+</div>
+
+</body>
+</html>

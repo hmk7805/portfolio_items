@@ -1,0 +1,41 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	background-image: url(../images/background.jpg);
+	background-position: repeat;
+}
+.header {
+	margin-top:20px;
+}
+.button {
+	width: 100%;
+	height: 100%;
+	font-size: 36px;
+}
+.questionArea{
+	overflow: auto;
+}
+img{
+	margin:auto;
+}
+.question {
+ 	background : #FFFFFF;
+ 	margin:10px;
+ 	width: 40%;
+ 	text-align: center;
+}
+.left-question {
+	float:left;
+	position: relative;
+}
+.right-question {
+	float:right;
+	position: relative;
+}
+.score {
+	clear:both;
+}
+#doneBtn{
+	position: relative;
+}
