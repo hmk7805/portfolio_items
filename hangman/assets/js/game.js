@@ -59,66 +59,41 @@ $(document).ready(reset);
  
   //user key choice
   document.onkeypress=function(event){
-
-      //set variable to key choice
-      user = String.fromCharCode(event.keyCode).toLowerCase();
+    //set variable to key choice
+    user = String.fromCharCode(event.keyCode).toLowerCase();
+    
+    //push variable user into guessed array, other option --> guessed[guessed.length] = user;
+    guessed.push(user); 
       
-      //push variable user into guessed array, other option --> guessed[guessed.length] = user;
-      guessed.push(user); 
-        
-      //this prints the array to the document in a string seperated by ~s   
-      document.getElementById("guesses").innerHTML = guessed.join(" ~ ");
+    //this prints the array to the document in a string seperated by ~s   
+    document.getElementById("guesses").innerHTML = guessed.join(" ~ ");
 
-      for (var i = 0 ; i < computerGuess.length ; i++ ) {
+    for (var i = 0 ; i < computerGuess.length ; i++ ) {
+      //if user is any letter of the word, find the elements with that letter class and change the html to that letter.
+      if (user === computerGuess[i]) {
+        letterGuess++
+        progress.push(user);
+        $('.' + user).html(user);
+      }            
+    }
 
-        //if user is any letter of the word, find the elements with that letter class and change the html to that letter.
-        if (user === computerGuess[i]) {
-
-          letterGuess++
-          progress.push(user);
-          // document.getElementsByClassName('.' + user).innerHTML = user;
-          $('.' + user).html(user);
-        }
-        nodelist = document.getElementsByClassName(user);
-        for (var j = 0 ; j < nodelist.length ; j++) {
-          nodelist[j].innerhtml = user + " "
-          console.log(nodelist[j]);
-        }
-      }
-
-      // if all of the letters have been chosen, alert a win, increment wins
-      if (progress.length === computerGuess.length) {
-        setTimeout(function(){
-          alert("You Win, the state was " + computerGuess)
-        }, 3)
-        wins++
-        setTimeout(function(){
-          reset()
-        }, 5);
-      }
-      
-      if (letterGuess === 0) {
-        guesses--
-        document.getElementById("guessesLeft").innerHTML = "Guesses Left: " + guesses;
-        }
-
-      if (guesses === 0){
-        alert("You Lose, the state was " + computerGuess)
-        losses++
+    // if all of the letters have been chosen, alert a win, increment wins
+    if (progress.length === computerGuess.length) {
+      wins++
+      document.getElementById('wins').innerHTML = 'Wins: ' + wins
+      setTimeout(function(){
+        alert("You Win, the state was " + computerGuess)
+      }, 3)
+      setTimeout(function(){
         reset()
-        }
-      
-
-
-    //testing in console
-    console.log("user: " + user);
-    console.log("comp: " + computerGuess);
-    console.log("w: " + wins);
-    console.log("l: " + losses);
-    console.log("g: " + guesses);
-    console.log("letter is in word " + letterGuess + " times");
-    console.log("progress: " + progress);
-  
+      }, 5);
+    }
+    if (guesses === 0){
+      alert("You Lose, the state was " + computerGuess)
+      losses--
+      document.getElementById('losses').innerHTML = 'Losses: ' + losses
+      reset()
+    }
 } 
       
 
