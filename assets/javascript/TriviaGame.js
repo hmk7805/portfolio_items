@@ -63,6 +63,9 @@ $(document).ready(function(){
 			$('#unanswered').html('Unanswered: ' + scoreObj.unanswered)
 		}
 	}
+	$('#retryBtn').on('click', function(){
+		location.reload();
+	})
 });
 
 
