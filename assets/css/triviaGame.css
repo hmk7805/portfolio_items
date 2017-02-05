@@ -2,7 +2,7 @@
 	box-sizing: border-box;
 }
 body {
-	background-image: url(assets/images/background_trivia.jpg);
+	background-image: url(../images/background_trivia.jpg);
 	background-position: repeat;
 }
 .header {

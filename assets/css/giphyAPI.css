@@ -2,11 +2,11 @@
 	box-sizing: border-box;
 }
 body{
-	background-image: url(assets/images/background_giphyAPI.jpg);
+	background-image: url(../images/background_giphyAPI.jpg);
 	margin-top: 20px;
 }
 #userArea{
-	background-image: url(assets/images/background_giphyAPI.jpg);
+	background-image: url(../images/background_giphyAPI.jpg);
 	opacity: 50;
 	text-align: center;
 }
