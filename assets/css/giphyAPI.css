@@ -10,7 +10,7 @@ body{
 	opacity: 50;
 	text-align: center;
 }
-.wordBtn {
+.wordBtn, .addBtn {
 	margin: 10px;
 	border:orange;
 	border-radius:50px;
