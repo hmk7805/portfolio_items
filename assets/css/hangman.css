@@ -12,7 +12,7 @@ p{
 	margin:20px;
 }
 body {
-	background-image: url(../images/usmap.jpg);
+	background-image: url(assets/images/usmap.jpg);
 	background-repeat: no-repeat;
 	background-size: 75%;
 	background-position: center top;

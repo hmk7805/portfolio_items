@@ -1,9 +1,6 @@
 * {
 	box-sizing: border-box;
 }
-
-
-
 .boxes {
 
 	width:200px;
@@ -12,12 +9,10 @@
 	padding:20px;
 
 }
-
 .crystal {
 	height:200px; 
 	width:200px;
 }
-
 .block {
 	background-color: rgba(23, 50, 90, 0.80);
 	padding:20px;
